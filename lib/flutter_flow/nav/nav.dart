@@ -33,12 +33,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => HomePageWidget(),
+      errorBuilder: (context, state) => appStateNotifier.showSplashImage
+          ? Builder(
+              builder: (context) => Container(
+                color: Colors.transparent,
+                child: Image.asset(
+                  'assets/images/SPLASH.gif',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            )
+          : HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => HomePageWidget(),
+          builder: (context, _) => appStateNotifier.showSplashImage
+              ? Builder(
+                  builder: (context) => Container(
+                    color: Colors.transparent,
+                    child: Image.asset(
+                      'assets/images/SPLASH.gif',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
+              : HomePageWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
@@ -46,9 +66,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: CadastroPageWidget.routeName,
-          path: CadastroPageWidget.routePath,
-          builder: (context, params) => CadastroPageWidget(),
+          name: ValidaCEPWidget.routeName,
+          path: ValidaCEPWidget.routePath,
+          builder: (context, params) => ValidaCEPWidget(),
+        ),
+        FFRoute(
+          name: ValidaCPFWidget.routeName,
+          path: ValidaCPFWidget.routePath,
+          builder: (context, params) => ValidaCPFWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
