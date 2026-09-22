@@ -56,6 +56,12 @@ abstract class FlutterFlowTheme {
   late Color error;
   late Color info;
 
+  late Color richBlackFOGRA39;
+  late Color blue;
+  late Color turquoise;
+  late Color cultured;
+  late Color cerise;
+
   FFDesignTokens get designToken => FFDesignTokens(this);
 
   @Deprecated('Use displaySmallFamily instead')
@@ -160,6 +166,12 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
+
+  late Color richBlackFOGRA39 = const Color(0xFF070707);
+  late Color blue = const Color(0xFF3A28DE);
+  late Color turquoise = const Color(0xFF34D1BF);
+  late Color cultured = const Color(0xFFEFEFEF);
+  late Color cerise = const Color(0xFFD1345B);
 }
 
 abstract class Typography {
@@ -346,6 +358,12 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
+
+  late Color richBlackFOGRA39 = const Color(0xFF070707);
+  late Color blue = const Color(0xFF3A28DE);
+  late Color turquoise = const Color(0xFF34D1BF);
+  late Color cultured = const Color(0xFFEFEFEF);
+  late Color cerise = const Color(0xFFD1345B);
 }
 
 class FFDesignTokens {
